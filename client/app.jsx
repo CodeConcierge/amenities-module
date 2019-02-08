@@ -5,7 +5,7 @@ class App extends React.Component {
     }
 
     componentDidMount(){
-        $.get('http://localhost:3000/api/amenities', (serverData) => {
+        $.get('http://localhost:3003/api/amenities', (serverData) => {
             let parsedServerData = JSON.parse(serverData)
             let amenities = [];
             for (var prop in parsedServerData) {

@@ -1,8 +1,8 @@
-DROP DATABASE IF EXISTS h4b_amenities;
+DROP DATABASE IF EXISTS b4b_amenities;
 
-CREATE DATABASE h4b_amenities;
+CREATE DATABASE b4b_amenities;
 
-USE h4b_amenities;
+USE b4b_amenities;
 
 CREATE TABLE amenities (
   id int NOT NULL AUTO_INCREMENT,
@@ -30,7 +30,7 @@ CREATE TABLE common_amenities (
 */
 
 
--- amenities (pickle jar, french press, VHS player, fixie rack)
+-- amenities
 INSERT INTO amenities (name,appeal,img_url) VALUES ('Wifi',9,'https://drive.google.com/open?id=19rhp7TXQ9lmv30yc1DWVnf4xugPQf-du');
 INSERT INTO amenities (name,appeal,img_url) VALUES ('Breakfast',3,'https://drive.google.com/open?id=1K5DVI6aXhoh-393-kS7QdmP5nY0IzkkQ');
 INSERT INTO amenities (name,appeal,img_url) VALUES ('Washer',5,'https://drive.google.com/open?id=1CV6LvqqwOmXOBSLi4aA-Yp0fax4SJ-b4');

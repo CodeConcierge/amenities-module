@@ -3,6 +3,20 @@ class App extends React.Component {
         super(props)
         this.state = {}
     }
+
+    componentDidMount(){
+        $.get('http://localhost:3003/api/amenities', (serverData) => {
+            let parsedServerData = JSON.parse(serverData)
+            let amenities = [];
+            for (var prop in parsedServerData) {
+                amenities.push(parsedServerData[prop])
+            }
+            console.log(amenities)
+            // this.setState({
+            // linesList: stateLines
+            // })
+        })
+    }
     render() {
         return <div>hi from inside app.jsx</div>
     }

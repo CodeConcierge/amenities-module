@@ -10,7 +10,6 @@ const getAmenenities = function(serverCallback) {
       throw err;
       return
     } else {
-      console.log('dbdata', dbData)
       serverCallback(null, dbData)
     }
   }

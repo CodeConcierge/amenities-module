@@ -9,8 +9,8 @@
   },
   "scripts": {
     "start": "nodemon server/server.js",
-    "dev:react": "webpack -d --watch",
-    "db-seed": "mysql -u root -p < database/schema.sql"
+    "build": "webpack -d --watch",
+    "seed": "mysql -u root -p < database/schema.sql"
   },
   "devDependencies": {
     "@babel/cli": "^7.2.0",

@@ -31,20 +31,20 @@ CREATE TABLE common_amenities (
 
 
 -- amenities
-INSERT INTO amenities (name,appeal,img_url) VALUES ('Wifi',9,'https://drive.google.com/open?id=19rhp7TXQ9lmv30yc1DWVnf4xugPQf-du');
-INSERT INTO amenities (name,appeal,img_url) VALUES ('Breakfast',3,'https://drive.google.com/open?id=1K5DVI6aXhoh-393-kS7QdmP5nY0IzkkQ');
-INSERT INTO amenities (name,appeal,img_url) VALUES ('Washer',5,'https://drive.google.com/open?id=1CV6LvqqwOmXOBSLi4aA-Yp0fax4SJ-b4');
-INSERT INTO amenities (name,appeal,img_url) VALUES ('Dryer',5,'https://drive.google.com/open?id=1xA9bmhnxVqsgPx4Jpfl0yWuKv9pMiza-');
-INSERT INTO amenities (name,appeal,img_url) VALUES ('Pet Friendly',8,'https://drive.google.com/open?id=1QHatk1ZNAq4wP3O1NU_ACFEp1u7BL5-d');
-INSERT INTO amenities (name,appeal,img_url) VALUES ('Fireplace',7,'https://drive.google.com/open?id=1RE47OTiFyzQZj1pyq71r5OCqp8Df7kma');
-INSERT INTO amenities (name,appeal,img_url) VALUES ('Free Parking',7,'https://drive.google.com/open?id=18Y567vq9G4XFyqN0DAmLNCG66IHlaAtM');
-INSERT INTO amenities (name,appeal,img_url) VALUES ('Kitchen',6,'https://drive.google.com/open?id=13hDQnd1fgbkaKYsGsTgVAgdSAEKJleeZ');
-INSERT INTO amenities (name,appeal,img_url) VALUES ('Cable TV',5,'https://drive.google.com/open?id=1MoAOcQYNK40iHc9amzjDfktn6H7EaDuc');
-INSERT INTO amenities (name,appeal,img_url) VALUES ('Air Conditioning',4,'https://drive.google.com/open?id=1dlZSPCtf5CDQPpy2w4nrRhYZr2-L3qi9');
-INSERT INTO amenities (name,appeal,img_url) VALUES ('Pickle Jar',9,'https://drive.google.com/open?id=1eKIyP6dP9BxO9k9BNhqxFa6HR30Renfb');
-INSERT INTO amenities (name,appeal,img_url) VALUES ('French Press',9,'https://drive.google.com/open?id=1md37vZO2lHZ5JYKpnhXagEqQQVXlEEkJ');
-INSERT INTO amenities (name,appeal,img_url) VALUES ('VHS Player',3,'https://drive.google.com/open?id=1CCSlcUxYkI6FUQhZq83-ve4Oox8w9IVM');
-INSERT INTO amenities (name,appeal,img_url) VALUES ('Fixie Rack',3,'https://drive.google.com/open?id=1gVqopY2hVv99XvW3RvRhrUNcI04WY9aN');
+INSERT INTO amenities (name,appeal,img_url) VALUES ('Wifi',9,'https://s3-us-west-2.amazonaws.com/amenities-photos/amenities+icons/wifi.png');
+INSERT INTO amenities (name,appeal,img_url) VALUES ('Breakfast',3,'https://s3-us-west-2.amazonaws.com/amenities-photos/amenities+icons/breakfast.png');
+INSERT INTO amenities (name,appeal,img_url) VALUES ('Washer',5,'https://s3-us-west-2.amazonaws.com/amenities-photos/amenities+icons/washer.png');
+INSERT INTO amenities (name,appeal,img_url) VALUES ('Dryer',5,'https://s3-us-west-2.amazonaws.com/amenities-photos/amenities+icons/dryer.png');
+INSERT INTO amenities (name,appeal,img_url) VALUES ('Pet Friendly',8,'https://s3-us-west-2.amazonaws.com/amenities-photos/amenities+icons/pets.png');
+INSERT INTO amenities (name,appeal,img_url) VALUES ('Fireplace',7,'https://s3-us-west-2.amazonaws.com/amenities-photos/amenities+icons/fireplace.png');
+INSERT INTO amenities (name,appeal,img_url) VALUES ('Free Parking',7,'https://s3-us-west-2.amazonaws.com/amenities-photos/amenities+icons/parking.png');
+INSERT INTO amenities (name,appeal,img_url) VALUES ('Kitchen',6,'https://s3-us-west-2.amazonaws.com/amenities-photos/amenities+icons/kitchen.png');
+INSERT INTO amenities (name,appeal,img_url) VALUES ('Cable TV',5,'https://s3-us-west-2.amazonaws.com/amenities-photos/amenities+icons/tv.png');
+INSERT INTO amenities (name,appeal,img_url) VALUES ('Air Conditioning',4,'https://s3-us-west-2.amazonaws.com/amenities-photos/amenities+icons/ac.png');
+INSERT INTO amenities (name,appeal,img_url) VALUES ('Pickle Jar',9,'https://s3-us-west-2.amazonaws.com/amenities-photos/amenities+icons/jar.png');
+INSERT INTO amenities (name,appeal,img_url) VALUES ('French Press',9,'https://s3-us-west-2.amazonaws.com/amenities-photos/amenities+icons/frenchpress.png');
+INSERT INTO amenities (name,appeal,img_url) VALUES ('VHS Player',3,'https://s3-us-west-2.amazonaws.com/amenities-photos/amenities+icons/vhs.png');
+INSERT INTO amenities (name,appeal,img_url) VALUES ('Fixie Rack',3,'https://s3-us-west-2.amazonaws.com/amenities-photos/amenities+icons/bikerack.png');
 
 -- join table
 INSERT INTO amen_join_home (amen_id,home_id) VALUES (12,100);

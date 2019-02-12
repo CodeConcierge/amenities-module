@@ -3,7 +3,7 @@ const Modal = (props) => {
     // let allAmens = props.allAmens
 
     let backgroundDivStyle = {
-        display:'flex',
+        display:'none',
         position:'fixed',
         top:0,
         left:0,

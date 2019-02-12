@@ -21,7 +21,7 @@ class App extends React.Component {
             this.setState({
                 listingAmenities: amenities
             })
-            //console.log(this.state.listingAmenities[2].name)
+            console.log(this.state.listingAmenities)
         })
     }
 

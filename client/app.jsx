@@ -1,9 +1,11 @@
-import Amenity from './amenity.jsx'
+import Amenity from './amenity.jsx';
+import Modal from './modal.jsx';
 class App extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            listingAmenities: []
+            listingAmenities: [],
+            show: false
         }
     }
 
@@ -22,19 +24,26 @@ class App extends React.Component {
             //console.log(this.state.listingAmenities[2].name)
         })
     }
+
+    showModal(){
+        this.setState({show: true});
+    };
+
+    hideModal(){
+        this.setState({show: false});
+    };
+
     render() {
         return (
-            <div>
-                <section>
-                    <h2>Amenities</h2>
-                    <div style={{marginBottom:16}}>
-                        <table>
-                            <Amenity amenities={this.state.listingAmenities}/>
-                        </table>
-                    </div>
-                    <a style={{color:'blue'}} onClick={() => console.log('click handler working')}>Show all {this.state.listingAmenities.length} amenities</a>
-                </section>
-            </div>
+            <main style={{height:'100vh'}}>
+                <Modal />
+                <h2>Amenities</h2>
+                <table style={{marginBottom:16}}>
+                    <Amenity amenities={this.state.listingAmenities}/>
+                </table>
+                <a style={{color:'blue',cursor:'pointer'}} onClick={() => console.log('click handler working')}><u>Show all {this.state.listingAmenities.length} amenities</u></a>
+                
+            </main>
         )
     }
 }

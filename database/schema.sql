@@ -6,8 +6,9 @@ USE b4b_amenities;
 
 CREATE TABLE amenities (
   id int NOT NULL AUTO_INCREMENT,
-  name varchar(30) NOT NULL,
+  name varchar(20) NOT NULL,
   appeal int NOT NULL,
+  category varchar(20),
   img_url varchar(500) NOT NULL,
   PRIMARY KEY (id)
 );
@@ -19,6 +20,7 @@ CREATE TABLE amen_join_home (
   PRIMARY KEY (id)
 );
 
+-- doing the most appealing of the home would not work, since wouldnt know what's missing
 CREATE TABLE common_amenities (
   amen_id int NOT NULL,
   PRIMARY KEY (amen_id)
@@ -31,20 +33,20 @@ CREATE TABLE common_amenities (
 
 
 -- amenities
-INSERT INTO amenities (name,appeal,img_url) VALUES ('Wifi',9,'https://s3-us-west-2.amazonaws.com/amenities-photos/amenities+icons/wifi.png');
-INSERT INTO amenities (name,appeal,img_url) VALUES ('Breakfast',3,'https://s3-us-west-2.amazonaws.com/amenities-photos/amenities+icons/breakfast.png');
-INSERT INTO amenities (name,appeal,img_url) VALUES ('Washer',5,'https://s3-us-west-2.amazonaws.com/amenities-photos/amenities+icons/washer.png');
-INSERT INTO amenities (name,appeal,img_url) VALUES ('Dryer',5,'https://s3-us-west-2.amazonaws.com/amenities-photos/amenities+icons/dryer.png');
-INSERT INTO amenities (name,appeal,img_url) VALUES ('Pet Friendly',8,'https://s3-us-west-2.amazonaws.com/amenities-photos/amenities+icons/pets.png');
-INSERT INTO amenities (name,appeal,img_url) VALUES ('Fireplace',7,'https://s3-us-west-2.amazonaws.com/amenities-photos/amenities+icons/fireplace.png');
-INSERT INTO amenities (name,appeal,img_url) VALUES ('Free Parking',7,'https://s3-us-west-2.amazonaws.com/amenities-photos/amenities+icons/parking.png');
-INSERT INTO amenities (name,appeal,img_url) VALUES ('Kitchen',6,'https://s3-us-west-2.amazonaws.com/amenities-photos/amenities+icons/kitchen.png');
-INSERT INTO amenities (name,appeal,img_url) VALUES ('Cable TV',5,'https://s3-us-west-2.amazonaws.com/amenities-photos/amenities+icons/tv.png');
-INSERT INTO amenities (name,appeal,img_url) VALUES ('Air Conditioning',4,'https://s3-us-west-2.amazonaws.com/amenities-photos/amenities+icons/ac.png');
-INSERT INTO amenities (name,appeal,img_url) VALUES ('Pickle Jar',9,'https://s3-us-west-2.amazonaws.com/amenities-photos/amenities+icons/jar.png');
-INSERT INTO amenities (name,appeal,img_url) VALUES ('French Press',9,'https://s3-us-west-2.amazonaws.com/amenities-photos/amenities+icons/frenchpress.png');
-INSERT INTO amenities (name,appeal,img_url) VALUES ('VHS Player',3,'https://s3-us-west-2.amazonaws.com/amenities-photos/amenities+icons/vhs.png');
-INSERT INTO amenities (name,appeal,img_url) VALUES ('Fixie Rack',3,'https://s3-us-west-2.amazonaws.com/amenities-photos/amenities+icons/bikerack.png');
+INSERT INTO amenities (name,appeal,category,img_url) VALUES ('Wifi',9,'Basic','https://s3-us-west-2.amazonaws.com/amenities-photos/amenities+icons/wifi.png');
+INSERT INTO amenities (name,appeal,category,img_url) VALUES ('Breakfast',3,'Dining','https://s3-us-west-2.amazonaws.com/amenities-photos/amenities+icons/breakfast.png');
+INSERT INTO amenities (name,appeal,category,img_url) VALUES ('Washer',5,'Basic','https://s3-us-west-2.amazonaws.com/amenities-photos/amenities+icons/washer.png');
+INSERT INTO amenities (name,appeal,category,img_url) VALUES ('Dryer',5,'Basic','https://s3-us-west-2.amazonaws.com/amenities-photos/amenities+icons/dryer.png');
+INSERT INTO amenities (name,appeal,category,img_url) VALUES ('Pet Friendly',8,'Facilities','https://s3-us-west-2.amazonaws.com/amenities-photos/amenities+icons/pets.png');
+INSERT INTO amenities (name,appeal,category,img_url) VALUES ('Fireplace',7,'Facilities','https://s3-us-west-2.amazonaws.com/amenities-photos/amenities+icons/fireplace.png');
+INSERT INTO amenities (name,appeal,category,img_url) VALUES ('Free Parking',7,'Facilities','https://s3-us-west-2.amazonaws.com/amenities-photos/amenities+icons/parking.png');
+INSERT INTO amenities (name,appeal,category,img_url) VALUES ('Kitchen',6,'Dining','https://s3-us-west-2.amazonaws.com/amenities-photos/amenities+icons/kitchen.png');
+INSERT INTO amenities (name,appeal,category,img_url) VALUES ('Cable TV',5,'Basic','https://s3-us-west-2.amazonaws.com/amenities-photos/amenities+icons/tv.png');
+INSERT INTO amenities (name,appeal,category,img_url) VALUES ('Air Conditioning',4,'Basic','https://s3-us-west-2.amazonaws.com/amenities-photos/amenities+icons/ac.png');
+INSERT INTO amenities (name,appeal,category,img_url) VALUES ('Pickle Jar',9,'Hip','https://s3-us-west-2.amazonaws.com/amenities-photos/amenities+icons/jar.png');
+INSERT INTO amenities (name,appeal,category,img_url) VALUES ('French Press',9,'Hip','https://s3-us-west-2.amazonaws.com/amenities-photos/amenities+icons/frenchpress.png');
+INSERT INTO amenities (name,appeal,category,img_url) VALUES ('VHS Player',3,'Hip','https://s3-us-west-2.amazonaws.com/amenities-photos/amenities+icons/vhs.png');
+INSERT INTO amenities (name,appeal,category,img_url) VALUES ('Fixie Rack',3,'Hip','https://s3-us-west-2.amazonaws.com/amenities-photos/amenities+icons/bikerack.png');
 
 -- join table
 INSERT INTO amen_join_home (amen_id,home_id) VALUES (12,100);

@@ -1,12 +1,12 @@
 import FullAmenity from "./fullAmenity.jsx";
 
 const Modal = (props) => {
-    //let show = props.show
-    let basics = props.amenities.filter(ele => ele.category === 'Basic')
-    let hip = props.amenities.filter(ele => ele.category === 'Hip')
+    
+    let basics = props.state.listingAmenities.filter(ele => ele.category === 'Basic')
+    let hip = props.state.listingAmenities.filter(ele => ele.category === 'Hip')
 
     let backgroundDivStyle = {
-        display:'block',
+        display:props.state.modalShow,
         position:'fixed',
         //zIndex: 2,
         top:0,
@@ -22,7 +22,7 @@ const Modal = (props) => {
     let displayDivStyle = {
         display:'block',
         position:'relative',
-        //zIndex: 3,
+        zIndex: 3,
         margin:'50px auto',
         padding:'0px 30px',
         height:'200%',
@@ -31,14 +31,10 @@ const Modal = (props) => {
         boxShadow:'rgba(0, 0, 0, 0.2) 0px 1px 10px 0px',
     }
 
-    // let modalText = {
-    //     margin:'20px 30px'
-    // }
-
     return (
-        <div style={backgroundDivStyle} role="dialog">
+        <div style={backgroundDivStyle} className='opaqueBackground' onClick={(event) => props.hideModal(event)}>
             <div style={displayDivStyle}>
-                <button style={{margin:'20px 0px',borderRadius:'50%'}}>&times;</button>
+                <button style={{margin:'20px 0px',borderRadius:'50%'}} className='closeButton' onClick={(event) => props.hideModal(event)}>&times;</button>
                 <h2 style={{margin:'0px 0px 20px 0px'}}>Amenities</h2>
                 <h4 style={{margin:'10px 30px 10px 0px'}}>Basic</h4>
                 <FullAmenity basics={basics}/>

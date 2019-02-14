@@ -5,7 +5,12 @@ class App extends React.Component {
         super(props)
         this.state = {
             listingAmenities: [],
-            show: false
+            mainStyle: {
+                color:'#484848',
+                fontFamily:'Circular,"Helvetica Neue",Helvetica,Arial,sans-serif',
+                top:0
+            },
+            modalShow: 'none',
         }
     }
 
@@ -16,36 +21,60 @@ class App extends React.Component {
             for (var prop in parsedServerData) {
                 amenities.push(parsedServerData[prop])
             }
-            //console.log(amenities)
-            //should order by attractiveness in the sql call. 
             this.setState({
                 listingAmenities: amenities
             })
             console.log(this.state.listingAmenities)
+            window.scrollTo(0,0)
+            //on refresh, the page loads back to the scrollTo probably stored in DOM. This extra scrollTo 0,0 adds a small glitch on refresh. 
         })
     }
 
     showModal(){
-        this.setState({show: true});
+        let backgroundTop = $(window).scrollTop();
+        this.setState({
+            mainStyle: {
+                color:'#484848',
+                fontFamily:'Circular,"Helvetica Neue",Helvetica,Arial,sans-serif',
+                position:'fixed',
+                top:-backgroundTop+8,
+                overflow:'hidden'
+            },
+            modalShow: 'block',
+        });
+        //console.log(this.state.mainStyle)
+        //how to get the page height on click? (to replace 'top' hardcoded value)
     };
 
-    hideModal(){
-        this.setState({show: false});
+    hideModal(event){
+        let backgroundTest = this.state.mainStyle.top;
+
+        if (event.target.className === 'closeButton' || event.target.className === 'opaqueBackground') {
+            this.setState({
+                mainStyle: {
+                    color:'#484848',
+                    fontFamily:'Circular,"Helvetica Neue",Helvetica,Arial,sans-serif',
+                },
+                modalShow: 'none'
+            },
+            () => window.scrollTo(0, -backgroundTest+8)
+            );
+        }
     };
 
     render() {
         return (
-            <main style={{color:'#484848',fontFamily:'Circular,"Helvetica Neue",Helvetica,Arial,sans-serif', position:'fixed',top:-200,overflow:'hidden'}}>
+            <main style={this.state.mainStyle}>
                 <div style={{fontSize:100}}>placeholder</div>
                 <div style={{fontSize:100}}>placeholder</div>
                 <div style={{fontSize:100}}>placeholder</div>
                 <div style={{fontSize:100}}>placeholder</div>
-                <Modal amenities={this.state.listingAmenities}/>
+                <Modal state={this.state} hideModal={this.hideModal.bind(this)}/>
                 <h2>Amenities</h2>
                 <table style={{marginBottom:16}}>
                     <Amenity amenities={this.state.listingAmenities}/>
                 </table>
-                <a style={{color:'blue',cursor:'pointer'}} onClick={() => console.log('click handler working')}><u>Show all {this.state.listingAmenities.length} amenities</u></a>
+                <a style={{color:'blue',cursor:'pointer'}} onClick={this.showModal.bind(this)}><u>Show all {this.state.listingAmenities.length} amenities</u></a>
                 <div style={{fontSize:100}}>placeholder</div>
                 <div style={{fontSize:100}}>placeholder</div>
                 <div style={{fontSize:100}}>placeholder</div>

@@ -1,5 +1,5 @@
 
-let Amenity = (props) => {
+let ShortAmenity = (props) => {
     let amenTableData = [];
     let amenRow = [];
     if(props.amenities[0]) {
@@ -15,4 +15,4 @@ let Amenity = (props) => {
     return <tbody>{amenRow}</tbody>
 }
 
-export default Amenity;
+export default ShortAmenity;

@@ -1,4 +1,4 @@
-import Amenity from './amenity.jsx';
+import Amenity from './shortAmenity.jsx';
 import Modal from './modal.jsx';
 class App extends React.Component {
     constructor(props) {
@@ -35,14 +35,20 @@ class App extends React.Component {
 
     render() {
         return (
-            <main style={{height:'100vh'}}>
-                <Modal />
+            <main style={{color:'#484848',fontFamily:'Circular,"Helvetica Neue",Helvetica,Arial,sans-serif', position:'fixed',top:-200,overflow:'hidden'}}>
+                <div style={{fontSize:100}}>placeholder</div>
+                <div style={{fontSize:100}}>placeholder</div>
+                <div style={{fontSize:100}}>placeholder</div>
+                <div style={{fontSize:100}}>placeholder</div>
+                <Modal amenities={this.state.listingAmenities}/>
                 <h2>Amenities</h2>
                 <table style={{marginBottom:16}}>
                     <Amenity amenities={this.state.listingAmenities}/>
                 </table>
                 <a style={{color:'blue',cursor:'pointer'}} onClick={() => console.log('click handler working')}><u>Show all {this.state.listingAmenities.length} amenities</u></a>
-                
+                <div style={{fontSize:100}}>placeholder</div>
+                <div style={{fontSize:100}}>placeholder</div>
+                <div style={{fontSize:100}}>placeholder</div>
             </main>
         )
     }

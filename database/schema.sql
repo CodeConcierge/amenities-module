@@ -44,7 +44,7 @@ INSERT INTO amenities (name,appeal,category,description,img_url) VALUES ('Free P
 INSERT INTO amenities (name,appeal,category,description,img_url) VALUES ('Kitchen',6,'Dining','Space where guests can cook their own meals','https://s3-us-west-2.amazonaws.com/amenities-photos/amenities+icons/kitchen.png');
 INSERT INTO amenities (name,appeal,category,description,img_url) VALUES ('Cable TV',5,'Basic','','https://s3-us-west-2.amazonaws.com/amenities-photos/amenities+icons/tv.png');
 INSERT INTO amenities (name,appeal,category,description,img_url) VALUES ('Air Conditioning',4,'Basic','','https://s3-us-west-2.amazonaws.com/amenities-photos/amenities+icons/ac.png');
-INSERT INTO amenities (name,appeal,category,description,img_url) VALUES ('Pickle Jar',9,'Hip','Mason jar with pickles brewed fresh by owner','https://s3-us-west-2.amazonaws.com/amenities-photos/amenities+icons/jar.png');
+INSERT INTO amenities (name,appeal,category,description,img_url) VALUES ('Pickle Jar',9,'Hip','Mason jar filled w/ dill','https://s3-us-west-2.amazonaws.com/amenities-photos/amenities+icons/jar.png');
 INSERT INTO amenities (name,appeal,category,description,img_url) VALUES ('French Press',9,'Hip','Fair Trade coffee only','https://s3-us-west-2.amazonaws.com/amenities-photos/amenities+icons/frenchpress.png');
 INSERT INTO amenities (name,appeal,category,description,img_url) VALUES ('VHS Player',3,'Hip','Be kind rewind','https://s3-us-west-2.amazonaws.com/amenities-photos/amenities+icons/vhs.png');
 INSERT INTO amenities (name,appeal,category,description,img_url) VALUES ('Fixie Rack',3,'Hip','Who needs gears?','https://s3-us-west-2.amazonaws.com/amenities-photos/amenities+icons/bikerack.png');

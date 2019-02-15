@@ -1,18 +1,22 @@
-
 let ShortAmenity = (props) => {
-    let amenTableData = [];
-    let amenRow = [];
+    let amenRows = [];
     if(props.amenities[0]) {
-        let amenSliced = props.amenities.slice(0,4);
-        amenTableData = amenSliced.map(ele => {
-            return <td style={{paddingRight:110}}><img src={ele.img_url} style={{height:20,width:20}}></img>{ele.name}</td>
+        let includedAmens = props.amenities.filter(ele => ele.included === 1).slice(0,4)
+        let safetyAmens = props.amenities.filter(ele => (ele.appeal === 0 && ele.included === 0))
+        let shortDisplayAmens = includedAmens.concat(safetyAmens)
+        let amenTableData = shortDisplayAmens.map(ele => {
+            return <td style={{paddingRight:110,paddingBottom:10}}><img src={ele.img_url} style={{height:20,width:20}}></img>{ele.name}</td>
         })
-        for (let i = 0; i <= amenSliced.length / 2; i+=2) {
-            amenRow.push(<tr key={amenSliced[i].name}>{amenTableData[i]}{amenTableData[i+1]}</tr>) 
+        for (let i = 0; i <= Math.ceil(shortDisplayAmens.length / 2); i++) {
+            amenRows.push(<tr key={shortDisplayAmens[i].name}>{amenTableData[i]}{amenTableData[i+1]}</tr>) 
+            i++
+            if (Math.ceil(shortDisplayAmens.length / 2) - i  === 0) {
+                amenRows.push(<tr key={shortDisplayAmens[i+1].name} style={{textDecoration:'line-through'}}>{amenTableData[i+1]}</tr>) 
+                amenRows.push(<tr key={'safety explaination'} style={{fontSize:12}}><td>{shortDisplayAmens[i+1].description}</td></tr>) 
+            }
         }
-        //carbon monoxide? add it manually
     }
-    return <tbody>{amenRow}</tbody>
+    return <tbody>{amenRows}</tbody>
 }
 
 export default ShortAmenity;

@@ -17,12 +17,13 @@ class App extends React.Component {
     componentDidMount(){
         $.get('http://localhost:3003/api/amenities', (serverData) => {
             let parsedServerData = JSON.parse(serverData)
-            let amenities = [];
+            let houseAmenities = [];
+
             for (var prop in parsedServerData) {
-                amenities.push(parsedServerData[prop])
+                houseAmenities.push(parsedServerData[prop])
             }
             this.setState({
-                listingAmenities: amenities
+                listingAmenities: houseAmenities
             })
             console.log(this.state.listingAmenities)
             window.scrollTo(0,0)
@@ -42,8 +43,6 @@ class App extends React.Component {
             },
             modalShow: 'block',
         });
-        //console.log(this.state.mainStyle)
-        //how to get the page height on click? (to replace 'top' hardcoded value)
     };
 
     hideModal(event){
@@ -61,7 +60,7 @@ class App extends React.Component {
             );
         }
     };
-
+    //for length below, need to consider if displaying carbon monitor, if yes, need to remove description from db, and add manually on client 
     render() {
         return (
             <main style={this.state.mainStyle}>
@@ -74,7 +73,7 @@ class App extends React.Component {
                 <table style={{marginBottom:16}}>
                     <Amenity amenities={this.state.listingAmenities}/>
                 </table>
-                <a style={{color:'blue',cursor:'pointer'}} onClick={this.showModal.bind(this)}><u>Show all {this.state.listingAmenities.length} amenities</u></a>
+                <a style={{color:'blue',cursor:'pointer'}} onClick={this.showModal.bind(this)}><u>Show all {this.state.listingAmenities.filter(ele => ele.included === 1).length} amenities</u></a>
                 <div style={{fontSize:100}}>placeholder</div>
                 <div style={{fontSize:100}}>placeholder</div>
                 <div style={{fontSize:100}}>placeholder</div>

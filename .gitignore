@@ -5,7 +5,7 @@
 node_modules/
 
 ## Compiled files ##
-compiled/
+bundle.js
 
 ## passwords ##
 database/config.js

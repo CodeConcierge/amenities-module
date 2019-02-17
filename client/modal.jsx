@@ -1,10 +1,17 @@
+import React from 'react';
 import FullAmenity from "./fullAmenity.jsx";
 
 const Modal = (props) => {
+    //could edit this code to use a forEach on the categories, save code. 
     let basics = props.state.listingAmenities.filter(ele => (ele.category === 'Basic' && ele.included === 1))
     let facilities = props.state.listingAmenities.filter(ele => (ele.category === 'Facilities' && ele.included === 1))
     let hip = props.state.listingAmenities.filter(ele => (ele.category === 'Hip' && ele.included === 1))
-    let notIncluded = props.state.listingAmenities.filter(ele => (ele.included === 0 && ele.appeal >= 7))
+    let notIncluded = props.state.listingAmenities.filter(ele => (ele.included === 0 && (ele.appeal >= 7 || ele.appeal === 0)))
+    if (notIncluded.length === 0 && props.state.listingAmenities.filter(ele => (ele.included === 0)).length > 0) {
+        let allNotIncluded = props.state.listingAmenities.filter(ele => (ele.included === 0))
+        console.log(allNotIncluded)
+        notIncluded = allNotIncluded[0]
+    }
 
     let backgroundDivStyle = {
         display:props.state.modalShow,
@@ -27,8 +34,8 @@ const Modal = (props) => {
         zIndex: 3,
         margin:'50px auto',
         padding:'0px 30px',
-        height:'200%',
-        width:'70%',
+        height:'auto',
+        width:450,
         backgroundColor:'white',
         boxShadow:'rgba(0, 0, 0, 0.2) 0px 1px 10px 0px',
     }

@@ -42,7 +42,7 @@ INSERT INTO amenities (name,appeal,category,common,description,img_url) VALUES (
 INSERT INTO amenities (name,appeal,category,common,description,img_url) VALUES ('French press',9,'Hip',TRUE,'Fair Trade coffee only','https://s3-us-west-2.amazonaws.com/amenities-photos/amenities+icons/frenchpress.png');
 INSERT INTO amenities (name,appeal,category,common,description,img_url) VALUES ('VHS player',3,'Hip',FALSE,'Be kind rewind','https://s3-us-west-2.amazonaws.com/amenities-photos/amenities+icons/vhs.png');
 INSERT INTO amenities (name,appeal,category,common,description,img_url) VALUES ('Fixie rack',3,'Hip',FALSE,'Who needs gears?','https://s3-us-west-2.amazonaws.com/amenities-photos/amenities+icons/bikerack.png');
-INSERT INTO amenities (name,appeal,category,common,description,img_url) VALUES ('Carbon monoxide detector',0,'Safety',TRUE,"The host hasn't reported a carbon monoxide detector on the property.",'https://s3-us-west-2.amazonaws.com/amenities-photos/amenities+icons/coDetector.png');
+INSERT INTO amenities (name,appeal,category,common,description,img_url) VALUES ('Carbon monoxide detector',0,'Facilities',TRUE,'','https://s3-us-west-2.amazonaws.com/amenities-photos/amenities+icons/coDetector.png');
 
 -- join table
 INSERT INTO amen_join_home (amen_id,home_id,included) VALUES (1,100,1);

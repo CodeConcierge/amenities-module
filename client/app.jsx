@@ -1,5 +1,4 @@
 import React from 'react';
-import $ from 'jquery';
 import Amenity from './shortAmenity.jsx';
 import Modal from './modal.jsx';
 class App extends React.Component {

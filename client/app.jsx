@@ -49,7 +49,6 @@ class App extends React.Component {
 
     hideModal(event){
         let backgroundTest = this.state.mainStyle.top;
-
         if (event.target.className === 'closeButton' || event.target.className === 'opaqueBackground') {
             this.setState({
                 mainStyle: {
@@ -69,14 +68,14 @@ class App extends React.Component {
                 <div style={{fontSize:100}}>placeholder</div>
                 <div style={{fontSize:100}}>placeholder</div>
                 <div style={{fontSize:100}}>placeholder</div>
-                <div style={{fontSize:100}}>placeholder</div>
+                <div style={{fontSize:100,marginBottom:80}}>placeholder</div>
                 <Modal state={this.state} hideModal={this.hideModal.bind(this)}/>
                 <h2>Amenities</h2>
                 <table style={{marginBottom:16}}>
                     <Amenity amenities={this.state.listingAmenities}/>
                 </table>
                 <a style={{color:'blue',cursor:'pointer'}} onClick={this.showModal.bind(this)}><u>Show all {this.state.listingAmenities.filter(ele => ele.included === 1).length} amenities</u></a>
-                <div style={{fontSize:100}}>placeholder</div>
+                <div style={{fontSize:100,marginTop:50}}>placeholder</div>
                 <div style={{fontSize:100}}>placeholder</div>
                 <div style={{fontSize:100}}>placeholder</div>
             </main>

@@ -9,3 +9,6 @@ bundle.js
 
 ## passwords ##
 database/config.js
+
+## testing ##
+coverage/

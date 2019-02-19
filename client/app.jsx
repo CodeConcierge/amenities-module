@@ -17,24 +17,31 @@ class App extends React.Component {
     }
 
     componentDidMount(){
-        $.get('http://localhost:3003/api/amenities', (serverData) => {
-            let parsedServerData = JSON.parse(serverData)
-            let houseAmenities = [];
-
-            for (var prop in parsedServerData) {
-                houseAmenities.push(parsedServerData[prop])
-            }
-            this.setState({
-                listingAmenities: houseAmenities
+        //const homeId = Math.floor(Math.random()*100 + 100);
+        //fetch('/api/amenities/' + homeId, {
+        fetch('http://localhost:3003/api/amenities', {
+            method: 'GET',
+            //may be able to specify a body here as well
+            headers: {
+              'Content-Type': 'application/json',
+            },
+          })
+            .then((response) => {
+              return response.json();
             })
-            console.log(this.state.listingAmenities)
-            window.scrollTo(0,0)
-            //on refresh, the page loads back to the scrollTo probably stored in DOM. This extra scrollTo 0,0 adds a small glitch on refresh. 
-        })
+            .then((data) => {
+                let houseAmenities = [];
+                for (var prop in data) {
+                    houseAmenities.push(data[prop])
+                }
+                this.setState({
+                    listingAmenities: houseAmenities
+                })
+            })
     }
 
     showModal(){
-        let backgroundTop = $(window).scrollTop();
+        let backgroundTop = window.pageYOffset;
         this.setState({
             mainStyle: {
                 color:'#484848',

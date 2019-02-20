@@ -12,3 +12,6 @@ database/config.js
 
 ## testing ##
 coverage/
+
+## images ##
+public/img

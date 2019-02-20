@@ -21,7 +21,7 @@ class App extends React.Component {
         fetch('http://localhost:3003/api/amenities', {
             method: 'GET',
             //may be able to specify a body here as well
-            mode: 'no-cors',
+            //mode: 'no-cors',
             headers: {
               'Content-Type': 'application/json',
             },

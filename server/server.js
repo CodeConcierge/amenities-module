@@ -15,8 +15,13 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(__dirname + '/../public'));
 
-app.get('/api/amenities', (req, res) => {
-  db.getAmenenities((err, amenData) => {
+app.get('/api/amenities/:homeId', (req, res) => {
+// app.get('/api/amenities/', (req, res) => {
+  //console.log('server listening at /api/amenities')
+  // let homeId = req.param('homeId')
+  //req.params.homeId
+  
+  db.getAmenenities(req.params.homeId, (err, amenData) => {
     if(err) {
       throw err;
       return;

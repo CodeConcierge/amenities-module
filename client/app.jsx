@@ -17,8 +17,13 @@ class App extends React.Component {
 
     componentDidMount(){
         //const homeId = Math.floor(Math.random()*100 + 100);
-        //fetch('/api/amenities/' + homeId, {
-        fetch('http://localhost:3003/api/amenities', {
+        
+        //start with a hardcoded homeId
+        const homeId = 101;
+        console.log(window.location.pathname)
+        console.log('update 17 working')
+        fetch('api/amenities/' + homeId, {
+        // fetch('http://localhost:3003/api/amenities', {
             method: 'GET',
             //may be able to specify a body here as well
             //mode: 'no-cors',

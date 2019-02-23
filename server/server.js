@@ -7,7 +7,8 @@ const port = 3003;
 
 
 app.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "http://localhost:3000");
+  //res.header("Access-Control-Allow-Origin", "http://localhost:3000", "http://ec2-3-89-187-136.compute-1.amazonaws.com/");
+  res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   next();
 });
@@ -24,7 +25,6 @@ app.get('/api/amenities/:homeId', (req, res) => {
   db.getAmenenities(req.params.homeId, (err, amenData) => {
     if(err) {
       throw err;
-      return;
     } else {
       //res.header("Access-Control-Allow-Origin", "*");
       stringedAmenData = JSON.stringify(amenData)

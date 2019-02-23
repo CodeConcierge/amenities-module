@@ -10,7 +10,6 @@ const getAmenenities = function(homeId, serverCallback) {
   let sqlCb = (err, dbData) => {
     if (err) {
       throw err;
-      return
     } else {
       serverCallback(null, dbData);
     }

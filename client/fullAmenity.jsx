@@ -17,7 +17,7 @@ let FullAmenity = (props) => {
         paddingBottom:10
     }
 
-    if(Object.keys(props).length > 0) {
+    if(Array.isArray(props[Object.keys(props)[0]])) {
         let categoryAmens = props[Object.keys(props)[0]]
         if (categoryAmens[0] && categoryAmens[0].included === 0) {
             nameCss.textDecoration = 'line-through';

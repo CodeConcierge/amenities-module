@@ -7,7 +7,7 @@ let ShortAmenity = (props) => {
         let safetyAmens = props.amenities.filter(ele => (ele.appeal === 0 && ele.included === 0))
         let shortDisplayAmens = includedAmens.concat(safetyAmens)
         let amenTableData = shortDisplayAmens.map(ele => {
-            return <td style={{paddingRight:110,paddingBottom:10}}><img src={ele.img_url} style={{height:20,width:20}}></img>{ele.name}</td>
+            return <td style={{paddingRight:150,paddingBottom:10}}><img src={ele.img_url} style={{height:20,width:20}}></img>{ele.name}</td>
         })
         for (let i = 0; i <= Math.ceil(shortDisplayAmens.length / 2); i++) {
             amenRows.push(<tr key={shortDisplayAmens[i].name}>{amenTableData[i]}{amenTableData[i+1]}</tr>) 

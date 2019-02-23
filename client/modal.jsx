@@ -16,8 +16,8 @@ const Modal = (props) => {
     let backgroundDivStyle = {
         display:props.state.modalShow,
         position:'fixed',
-        //zIndex: 2,
-        //maybe margin:0??
+        // zIndex: 2,
+        // zIndex: -1,
         top:0,
         right:0,
         bottom:0,
@@ -26,6 +26,7 @@ const Modal = (props) => {
         height:'100%',
         width:'100%',
         background:'rgba(255,255,255,0.8)',
+        //backgroundAttachment:'fixed'
     }
 
     let displayDivStyle = {

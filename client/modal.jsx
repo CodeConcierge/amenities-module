@@ -9,7 +9,6 @@ const Modal = (props) => {
     let notIncluded = props.state.listingAmenities.filter(ele => (ele.included === 0 && (ele.appeal >= 7 || ele.appeal === 0)))
     if (notIncluded.length === 0 && props.state.listingAmenities.filter(ele => (ele.included === 0)).length > 0) {
         let allNotIncluded = props.state.listingAmenities.filter(ele => (ele.included === 0))
-        console.log(allNotIncluded)
         notIncluded = allNotIncluded[0]
     }
 

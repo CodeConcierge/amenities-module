@@ -2,30 +2,16 @@ import React from 'react';
 import FullAmenity from "./fullAmenity.jsx";
 
 const Modal = (props) => {
-    //could edit this code to use a forEach on the categories, save code. 
-    let basics = props.state.listingAmenities.filter(ele => (ele.category === 'Basic' && ele.included === 1))
-    let facilities = props.state.listingAmenities.filter(ele => (ele.category === 'Facilities' && ele.included === 1))
-    let hip = props.state.listingAmenities.filter(ele => (ele.category === 'Hip' && ele.included === 1))
-    let notIncluded = props.state.listingAmenities.filter(ele => (ele.included === 0 && (ele.appeal >= 7 || ele.appeal === 0)))
-    if (notIncluded.length === 0 && props.state.listingAmenities.filter(ele => (ele.included === 0)).length > 0) {
-        let allNotIncluded = props.state.listingAmenities.filter(ele => (ele.included === 0))
-        notIncluded = allNotIncluded[0]
-    }
 
     let backgroundDivStyle = {
         display:props.state.modalShow,
         position:'fixed',
-        // zIndex: 2,
-        // zIndex: -1,
         top:0,
-        right:0,
-        bottom:0,
         left:0,
         overflow:'auto',
         height:'100%',
         width:'100%',
         background:'rgba(255,255,255,0.8)',
-        //backgroundAttachment:'fixed'
     }
 
     let displayDivStyle = {
@@ -39,7 +25,25 @@ const Modal = (props) => {
         backgroundColor:'white',
         boxShadow:'rgba(0, 0, 0, 0.2) 0px 1px 10px 0px',
     }
-    //the below code is repetitive, could do a map for each category, intead of repeating code 4 times over. 
+
+    let notIncludeDisp = {
+        margin:'10px 0px',
+        display:'block',
+    }
+
+    let listingAmenities = props.state.listingAmenities
+    let basics = listingAmenities.filter(ele => (ele.category === 'Basic' && ele.included === 1))
+    let facilities = listingAmenities.filter(ele => (ele.category === 'Facilities' && ele.included === 1))
+    let hip = listingAmenities.filter(ele => (ele.category === 'Hip' && ele.included === 1))
+    let notIncluded = listingAmenities.filter(ele => (ele.included === 0 && (ele.appeal >= 7 || ele.appeal === 0)))
+
+    if (notIncluded.length === 0) {
+        notIncludeDisp = {
+            margin:'10px 0px',
+            display:'none',
+        }
+    }
+
     return (
         <div style={backgroundDivStyle} className='opaqueBackground' onClick={(event) => props.hideModal(event)}>
             <div style={displayDivStyle}>
@@ -51,7 +55,7 @@ const Modal = (props) => {
                 <FullAmenity facilities={facilities}/>
                 <h4 style={{margin:'10px 0px'}}>Hip</h4>
                 <FullAmenity hip={hip}/>
-                <h4 style={{margin:'10px 0px'}}>Not Included</h4>
+                <h4 style={notIncludeDisp}>Not Included</h4>
                 <FullAmenity notIncluded={notIncluded}/>
             </div>
         </div>

@@ -1,7 +1,7 @@
 {
   "name": "amenities-module",
   "version": "1.0.1",
-  "description": "amenities module within the bread4bed mock front-end capstone",
+  "description": "amenities module for the bread4bed mock front-end capstone",
   "author": "Raaandy",
   "license": "",
   "engines": {

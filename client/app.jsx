@@ -9,19 +9,24 @@ class App extends React.Component {
             mainStyle: {
                 color:'#484848',
                 fontFamily:'Circular,"Helvetica Neue",Helvetica,Arial,sans-serif',
-                top:0
+                //top:0
             },
             modalShow: 'none',
+            clickHeight: 0
         }
     }
 
     componentDidMount(){
-        let homeId = Math.floor(Math.random()*98 + 100);
-        console.log(homeId)
-        //const homeId = 101;
-        //console.log(window.location.pathname)
+        //let homeId = Math.floor(Math.random()*98 + 100);
+        window.scrollTo(0, 0)
+        let paramId = 100;
+        if (window.location.href.split('?')[1]) {
+            paramId = window.location.href.split('?')[1];
+        } else {
+            window.location = window.location.href + "?100";
+        }
         //fetch('api/amenities/' + homeId, {
-        fetch('http://ec2-3-91-230-2.compute-1.amazonaws.com/api/amenities/' + homeId, {
+        fetch('http://ec2-3-91-230-2.compute-1.amazonaws.com/api/amenities/' + paramId, {
             method: 'GET',
             //may be able to specify a body here as well
             //mode: 'no-cors',
@@ -45,20 +50,24 @@ class App extends React.Component {
 
     showModal(){
         let backgroundTop = window.pageYOffset;
+        document.body.style.setProperty('overflow','hidden')
         this.setState({
-            mainStyle: {
-                color:'#484848',
-                fontFamily:'Circular,"Helvetica Neue",Helvetica,Arial,sans-serif',
-                position:'fixed',
-                top:-backgroundTop+8,
-                overflow:'hidden'
-            },
+            // mainStyle: {
+            //     color:'#484848',
+            //     fontFamily:'Circular,"Helvetica Neue",Helvetica,Arial,sans-serif',
+            //     position:'relative',
+            //     //top:-backgroundTop+8,
+            //     overflow:'hidden'
+            //     //this overflow hidden is only affecting my modal, not the whole page
+            // },
             modalShow: 'block',
+            clickHeight: backgroundTop,
         });
     };
 
     hideModal(event){
-        let backgroundTest = this.state.mainStyle.top;
+        let origPosition = this.state.clickHeight;
+        document.body.style.setProperty('overflow','visible')
         if (event.target.className === 'closeButton' || event.target.className === 'opaqueBackground') {
             this.setState({
                 mainStyle: {
@@ -67,7 +76,7 @@ class App extends React.Component {
                 },
                 modalShow: 'none'
             },
-            () => window.scrollTo(0, -backgroundTest+8)
+            () => window.scrollTo(0, -origPosition+8)
             );
         }
     };

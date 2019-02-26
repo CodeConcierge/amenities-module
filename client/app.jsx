@@ -14,8 +14,12 @@ class App extends React.Component {
     componentDidMount(){
         window.scrollTo(0, 0)
         let paramId = 100;
+        let input;
         if (window.location.href.split('?')[1]) {
-            paramId = window.location.href.split('?')[1];
+            input = window.location.href.split('?')[1];
+            if (input >= 100 || input < 200) {
+                paramId = input
+            }
         }
         fetch('http://ec2-3-91-230-2.compute-1.amazonaws.com/api/amenities/' + paramId, {
             method: 'GET',

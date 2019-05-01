@@ -21,7 +21,8 @@ class App extends React.Component {
                 paramId = input
             }
         }
-        fetch('http://ec2-3-91-230-2.compute-1.amazonaws.com/api/amenities/' + paramId, {
+        fetch('api/amenities/' + paramId, {
+        //fetch('http://ec2-3-91-230-2.compute-1.amazonaws.com/api/amenities/' + paramId, {
             method: 'GET',
             headers: {'Content-Type': 'application/json'},
           })

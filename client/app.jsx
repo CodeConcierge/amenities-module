@@ -14,11 +14,11 @@ class App extends React.Component {
     componentDidMount(){
         window.scrollTo(0, 0)
         let paramId = 100;
-        let input;
+        let inputId;
         if (window.location.href.split('?')[1]) {
-            input = window.location.href.split('?')[1];
-            if (input >= 100 || input < 200) {
-                paramId = input
+            inputId = window.location.href.split('?')[1];
+            if (inputId >= 100 || inputId < 200) {
+                paramId = inputId
             }
         }
         fetch('api/amenities/' + paramId, {

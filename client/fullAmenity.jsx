@@ -14,15 +14,15 @@ let FullAmenity = (props) => {
         paddingBottom:10
     }
     
-    let categoryAmens = Object.values(props)[0];
-    if(!Array.isArray(categoryAmens)){categoryAmens = [categoryAmens]}
-    if (categoryAmens[0] && categoryAmens[0].included === 0) {
+    let amenityObjects = Object.values(props)[0];
+    if(!Array.isArray(amenityObjects)){amenityObjects = [amenityObjects]}
+    if (amenityObjects[0] && amenityObjects[0].included === 0) {
         nameCss.textDecoration = 'line-through';
         descriptionCss.display = 'none'
     }
-
+    console.log(amenityObjects)
     let fullAmenities = [];
-    fullAmenities = categoryAmens.map(ele => {
+    fullAmenities = amenityObjects.map(ele => {
         return (
             <div key={ele.name}>
                 <div style={nameCss}>{ele.name}</div>

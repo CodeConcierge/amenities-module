@@ -26,7 +26,7 @@ const Modal = (props) => {
         boxShadow:'rgba(0, 0, 0, 0.2) 0px 1px 10px 0px',
     }
 
-    let notIncludeDisp = {
+    let notIncludedDisp = {
         margin:'10px 0px',
         display:'block',
     }
@@ -38,7 +38,7 @@ const Modal = (props) => {
     let notIncluded = listingAmenities.filter(ele => (ele.included === 0 && (ele.appeal >= 7 || ele.appeal === 0)))
 
     if (notIncluded.length === 0) {
-        notIncludeDisp = {
+        notIncludedDisp = {
             margin:'10px 0px',
             display:'none',
         }
@@ -55,7 +55,7 @@ const Modal = (props) => {
                 <FullAmenity facilities={facilities}/>
                 <h4 style={{margin:'10px 0px'}}>Hip</h4>
                 <FullAmenity hip={hip}/>
-                <h4 style={notIncludeDisp}>Not Included</h4>
+                <h4 style={notIncludedDisp}>Not Included</h4>
                 <FullAmenity notIncluded={notIncluded}/>
             </div>
         </div>

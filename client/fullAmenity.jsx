@@ -20,7 +20,7 @@ let FullAmenity = (props) => {
         nameCss.textDecoration = 'line-through';
         descriptionCss.display = 'none'
     }
-    console.log(amenityObjects)
+    
     let fullAmenities = [];
     fullAmenities = amenityObjects.map(ele => {
         return (
